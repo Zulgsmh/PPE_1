@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="641.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.VisiteurController">
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <children>
+      <TableView fx:id="tableauVisiteur" layoutX="17.0" layoutY="163.0" prefHeight="270.0" prefWidth="616.0">
+        <columns>
+          <TableColumn fx:id="idVisiteur" prefWidth="75.0" text="Id" />
+          <TableColumn fx:id="nomVisiteur" prefWidth="75.0" text="Nom" />
+            <TableColumn fx:id="prenomVisiteur" prefWidth="75.0" text="Prenom" />
+            <TableColumn fx:id="adresseVisiteur" prefWidth="75.0" text="Adresse" />
+            <TableColumn fx:id="cpVisiteur" prefWidth="75.0" text="Cp" />
+            <TableColumn fx:id="villeVisiteur" prefWidth="75.0" text="Ville" />
+            <TableColumn fx:id="dateEmbaucheVisiteur" prefWidth="87.99993896484375" text="Date Embauche" />
+            <TableColumn fx:id="afficherFichesFraisVisiteur" prefWidth="87.99993896484375" text="Acceder fiche de frais" />
+            <TableColumn fx:id="afficherVisiteur1" prefWidth="87.99993896484375" text="Acceder fiche de frais" />
+        </columns>
+      </TableView>
+      <Text layoutX="227.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tableau des visiteurs" wrappingWidth="230.13670349121094">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <TextField fx:id="nbMois" layoutX="186.0" layoutY="117.0" prefHeight="26.0" prefWidth="53.0" />
+      <Text layoutX="127.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mois  :" />
+      <Button fx:id="filtreMois" layoutX="283.0" layoutY="117.0" mnemonicParsing="false" onAction="#filtrerParMois" style="-fx-border-radius: 20; -fx-background-radius: 20;" text="Rechercher" />
+      <Button fx:id="Dcx" layoutX="524.0" layoutY="19.0" mnemonicParsing="false" onAction="#Deconnexion" style="-fx-background-radius: 20;" text="Déconnexion" />
+   </children>
+</AnchorPane>
