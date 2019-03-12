@@ -11,27 +11,26 @@ import javafx.beans.property.StringProperty;
 public class Document {
 	
 	private IntegerProperty idJustificatif;
-	private FraisForfait idFraisForfait;
+	//private FraisForfait idFraisForfait;
 	private StringProperty path;
 	private Visiteur idVisiteur;
-	private StringProperty nomJustificatif;
-	private FloatProperty montantJustificatif;
+	//private StringProperty nomJustificatif;
+	//private FloatProperty montantJustificatif;
 	
-	public Document() {
+	public Document(Visiteur idVisiteur) {
 		this.idJustificatif= new SimpleIntegerProperty();
-		this.idFraisForfait=idFraisForfait;
+	//	this.idFraisForfait=idFraisForfait;
 		this.path=new SimpleStringProperty();
 		this.idVisiteur=idVisiteur;
-		this.nomJustificatif=new SimpleStringProperty();
-		this.montantJustificatif=new SimpleFloatProperty();
+		//this.nomJustificatif=new SimpleStringProperty();
+		//this.montantJustificatif=new SimpleFloatProperty();
 	}
-	//------------------------------------
 	@Override
 	public String toString() {
-		return "Document [idJustificatif=" + idJustificatif + ", idFraisForfait=" + idFraisForfait + ", path=" + path
-				+ ", idVisiteur=" + idVisiteur + ", nomJustificatif=" + nomJustificatif + ", montantJustificatif="
-				+ montantJustificatif + "]";
+		return "Document [idJustificatif=" + idJustificatif + ", path=" + path + ", idVisiteur=" + idVisiteur + "]";
 	}
+	
+	
 
 	//-----------------------------------
 	public int getIdJustificatif() {
@@ -40,12 +39,13 @@ public class Document {
 	public void setIdJustificatif(int idJustificatif) {
 		this.idJustificatif.set(idJustificatif);;
 	}
+	/*
 	public FraisForfait getIdFraisForfait() {
 		return idFraisForfait;
 	}
 	public void setIdFraisForfait(FraisForfait idFraisForfait) {
 		this.idFraisForfait = idFraisForfait;
-	}
+	}  */
 	public String getPath() {
 		return path.get();
 	}
@@ -58,6 +58,7 @@ public class Document {
 	public void setIdVisiteur(Visiteur idVisiteur) {
 		this.idVisiteur=idVisiteur;
 	}
+	/*
 	public void setNomJustificatif(String nomJustificatif) {
 		this.nomJustificatif.set(nomJustificatif);
 	}
@@ -69,20 +70,21 @@ public class Document {
 	}
 	public Float getMontantJustificatif() {
 		return montantJustificatif.get();
-	}
+	} */
 	//----------------------------------------
 	public IntegerProperty getIdJustificatifPro() {
 		return idJustificatif;
 	}
 	public void setIdJustificatif(IntegerProperty idJustificatif) {
 		this.idJustificatif = idJustificatif;
-	}
+	} 
 	public StringProperty getPathPro() {
 		return path;
 	}
 	public void setPath(StringProperty path) {
 		this.path = path;
 	}
+	/*
 	public StringProperty getNomJustificatifPro() {
 		return nomJustificatif;
 	}
@@ -94,5 +96,5 @@ public class Document {
 	}
 	public FloatProperty getMontantJustificatifPro() {
 		return montantJustificatif;
-	}
+	} */
 }

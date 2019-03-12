@@ -31,40 +31,40 @@ public class DocumentDAO implements DAO<Document> {
 	ResultSet table = pst.executeQuery();
 	
 	 int idJustificatif;
-	 String idFraisForfait;
+	// String idFraisForfait;
 	 String path;
 	 String idVisiteur;
-	 String nomJustificatif;
-	 Float montantJustificatif;
+	// String nomJustificatif;
+	// Float montantJustificatif;
 	
 	
 	while(table.next())
 	{
 		idVisiteur = table.getString("idVisiteur");
 	 	idJustificatif = table.getInt("idJustificatif");
-	 	idFraisForfait = table.getString("idFraisForfait");
+	 //	idFraisForfait = table.getString("idFraisForfait");
 	 	path = table.getString("path");
-	 	nomJustificatif = table.getString("nomJustificatif");
-	 	montantJustificatif = table.getFloat("montantJustificatif");
+	 //	nomJustificatif = table.getString("nomJustificatif");
+	 //	montantJustificatif = table.getFloat("montantJustificatif");
 
 	 //	VisiteurDAO vd = new VisiteurDAO();
  VisiteurDAO vd = new VisiteurDAO();
  Visiteur v = vd.findById(idVisiteur);
- FraisForfaitDAO ffd = new FraisForfaitDAO();
- FraisForfait ff = ffd.findById(idFraisForfait);
+ //FraisForfaitDAO ffd = new FraisForfaitDAO();
+ //FraisForfait ff = ffd.findById(idFraisForfait);
 
  
  
-	 	Document doc = new Document();
+	 	Document doc = new Document(v);
 	 	doc.setIdVisiteur(v);
 	 	doc.setIdJustificatif(idJustificatif);
-	 	doc.setIdFraisForfait(ff);
+	 //	doc.setIdFraisForfait(ff);
 	 	doc.setPath(path);
-	 	doc.setNomJustificatif(nomJustificatif);
-	 	doc.setMontantJustificatif(montantJustificatif);
+	 //	doc.setNomJustificatif(nomJustificatif);
+	 //	doc.setMontantJustificatif(montantJustificatif);
 	
 	 
-		System.out.println(v);
+		System.out.println(doc);
 		listeDocument.add(doc);
 	}
 

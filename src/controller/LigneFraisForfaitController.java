@@ -66,6 +66,10 @@ public class LigneFraisForfaitController {
     private TableColumn<Document, String> descriptionJustificatif;
     @FXML
     private TableColumn<Document, Float> montantJustificatif;
+    @FXML
+    private TableColumn<Document, String> path;
+    @FXML
+    private TableColumn<Document, String> idJustificatif;
 
     
     ObservableList<Document> listeDocument ;
@@ -125,7 +129,7 @@ public class LigneFraisForfaitController {
                  super.updateItem(item, empty);
                  if (empty) {
                      setGraphic(null);
-                     setText(null);
+                     setText(null); 
                  } else {
                      btn.setOnAction(event -> {
                     	 Document   doc = getTableView().getItems().get(getIndex());
@@ -164,10 +168,12 @@ public class LigneFraisForfaitController {
  };
 	
  afficherJustificatif.setCellFactory(cellFactory1);
-
-    	 descriptionJustificatif.setCellValueFactory(cellData -> cellData.getValue().getNomJustificatifPro());
-    	 montantJustificatif.setCellValueFactory(cellData -> cellData.getValue().getMontantJustificatifPro().asObject());
-         
+if ( idJustificatif == null) {
+	System.out.print("ID JUSTIFICATIF NULL");
+}else {
+    	 idJustificatif.setCellValueFactory(cellData -> cellData.getValue().getIdJustificatifPro().asString());
+    	 path.setCellValueFactory(cellData -> cellData.getValue().getPathPro());
+}
     }
     
     
@@ -179,9 +185,9 @@ public void actionValiderLaFiche(ActionEvent evt) throws SQLException, IOExcepti
 	FicheFraisDAO.updateFiche(fiche.getIdVisiteur().getId(),fiche.getMois());
 
 	
-    /*        FXMLLoader loader = new FXMLLoader();
+       /* FXMLLoader loader = new FXMLLoader();
             loader.setLocation(.class.getClassLoader().getResource("View/afficherFicheFrais.fxml"));
-      AnchorPane visiteurFrame = (AnchorPane) loader.load();*/
+      AnchorPane visiteurFrame = (AnchorPane) loader.load(); */
 }
 
 

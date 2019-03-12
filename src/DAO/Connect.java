@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 
 public class Connect {
-    //modif par ma basse de données
+    //modif par ma base de données
     private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static final String DBNAME = "projetapplifrais";
     private static final String URL = "jdbc:mysql://localhost/"+DBNAME;

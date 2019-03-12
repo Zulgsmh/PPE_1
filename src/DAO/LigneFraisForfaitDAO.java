@@ -15,7 +15,7 @@ public class LigneFraisForfaitDAO implements DAO<LigneFraisForfait>{
    @Override
 	public ObservableList<LigneFraisForfait>  findByIdListe(String id) throws SQLException {
 	ObservableList<LigneFraisForfait> listeLigneFraisForfait = FXCollections.observableArrayList();
-	String sqlRequest = " select * from lignefraisfortfait where idVisiteur = ?";
+	String sqlRequest = " select * from lignefraisforfait where idVisiteur = ?";
 	Connection cx =  Connect.getInstance().getConnection() ;
 	PreparedStatement pst = cx.prepareStatement(sqlRequest);
 	 pst.setString(1, id);

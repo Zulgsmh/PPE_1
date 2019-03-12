@@ -7,10 +7,12 @@ import java.sql.SQLException;
 import DAO.ComptableDAO;
 import DAO.DocumentDAO;
 import DAO.FicheFraisDAO;
+import DAO.LigneFraisForfaitDAO;
 import DAO.VisiteurDAO;
 import javafx.collections.ObservableList;
 import model.Document;
 import model.FicheFrais;
+import model.LigneFraisForfait;
 import model.Visiteur;
 
 public class Test {
@@ -22,15 +24,26 @@ public class Test {
 		//ObservableList<>
 	
 //ObservableList<FicheFrais> liste =	(new FicheFraisDAO()).findAll();
-ObservableList<FicheFrais> list = (new FicheFraisDAO()).findByMois("10");
+/*ObservableList<FicheFrais> list = (new FicheFraisDAO()).findByMois("10");
 	
 		System.out.println(list.get(0));
 		
 DocumentDAO ddao = new DocumentDAO();
 ObservableList<Document> listeDocument = ( new DocumentDAO()).findAll();
-System.out.println(listeDocument.get(0));
-		
+System.out.println(listeDocument.get(0));*/
+FicheFraisDAO f = new FicheFraisDAO();
+
+ObservableList<FicheFrais> listeFicheFrais =f.findAll() ;
+
+System.out.println( listeFicheFrais.get(0));
+LigneFraisForfaitDAO l = new LigneFraisForfaitDAO();
+ObservableList<LigneFraisForfait> liste =l.findByIdListe("a131") ;
+System.out.println( liste.get(0));
+
+
 	}
+	
+
 	
 
 }
