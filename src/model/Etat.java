@@ -3,8 +3,6 @@ package model;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-import javafx.util.StringConverter;
-
 public class Etat {
 	private StringProperty id;
 	private StringProperty libelle;

@@ -3,8 +3,6 @@ package DAO;
 import java.sql.SQLException;
 
 import javafx.collections.ObservableList;
-import model.LigneFraisForfait;
-import model.Visiteur;
 
 public interface DAO <T>{
 	default void insert(T t) {};

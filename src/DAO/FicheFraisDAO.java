@@ -6,17 +6,11 @@ import java.time.LocalDate;
 import javafx.collections.ObservableList;
 import model.Etat;
 import model.FicheFrais;
-import model.LigneFraisHorsForfait;
-
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import model.Visiteur;
 
 public class FicheFraisDAO implements DAO<FicheFrais> {
@@ -57,7 +51,7 @@ public class FicheFraisDAO implements DAO<FicheFrais> {
 		 Etat  e = ed.findById(idEtat);
 		 
 		 
-			 	FicheFrais ficheFrais = new FicheFrais();
+			 	FicheFrais ficheFrais = new FicheFrais(e);
 			 	ficheFrais.setIdVisiteur(v);
 			 	ficheFrais.setMois(mois);
 			 	ficheFrais.setNbJustificatifs(nbJustificatifs);
@@ -105,7 +99,7 @@ public class FicheFraisDAO implements DAO<FicheFrais> {
 	 Etat  e = ed.findById(idEtat);
 	 
 	 
-		 	FicheFrais ficheFrais = new FicheFrais();
+		 	FicheFrais ficheFrais = new FicheFrais(e);
 		 	ficheFrais.setIdVisiteur(v);
 		 	ficheFrais.setMois(mois);
 		 	ficheFrais.setNbJustificatifs(nbJustificatifs);

@@ -1,19 +1,13 @@
 package view;
 
-import java.sql.Date;
 import java.sql.SQLException;
 
 
-import DAO.ComptableDAO;
-import DAO.DocumentDAO;
 import DAO.FicheFraisDAO;
 import DAO.LigneFraisForfaitDAO;
-import DAO.VisiteurDAO;
 import javafx.collections.ObservableList;
-import model.Document;
 import model.FicheFrais;
 import model.LigneFraisForfait;
-import model.Visiteur;
 
 public class Test {
 	public static void main(String[] args) throws SQLException { 

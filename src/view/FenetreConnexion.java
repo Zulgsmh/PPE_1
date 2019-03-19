@@ -20,7 +20,7 @@ private Stage primaryStage ;
 			FXMLLoader acc = new FXMLLoader() ;
 			acc.setLocation(FenetreConnexion.class.getClassLoader().getResource("View/connexion.fxml"));
 			Pane cnx = (Pane)acc.load();
-			Scene scene = new Scene(cnx,600,400);
+			Scene scene = new Scene(cnx,700,500);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			this.primaryStage.setScene(scene);
 			this.primaryStage.show();

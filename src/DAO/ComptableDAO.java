@@ -21,8 +21,7 @@ public class ComptableDAO implements DAO<Visiteur>{
 
 
 	public static boolean auth(String txtMdp, String txtLogin) throws SQLException {
-		boolean loginOk  ;
-	Connection cnx = Connect.getInstance().getConnection()  ;
+		Connection cnx = Connect.getInstance().getConnection()  ;
 		// TODO Auto-generated method stub
 		PreparedStatement statement = cnx.prepareStatement("SELECT login,mdp FROM Comptable WHERE  login = ? and mdp = ?");
 		

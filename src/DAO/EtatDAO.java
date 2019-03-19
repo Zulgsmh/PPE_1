@@ -7,8 +7,6 @@ import java.sql.SQLException;
 
 import javafx.collections.ObservableList;
 import model.Etat;
-import model.LigneFraisHorsForfait;
-import model.Visiteur;
 
 public class EtatDAO implements DAO<Etat>{
 

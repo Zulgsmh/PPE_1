@@ -10,7 +10,6 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.property.FloatProperty;
 import javafx.beans.property.SimpleFloatProperty;
-import javafx.util.StringConverter;
 
 public class FicheFrais {
 	@Override
@@ -26,7 +25,7 @@ public class FicheFrais {
 	private ObjectProperty<Date> dateModif;
 	private Etat idEtat;
 	
-public FicheFrais () {	
+public FicheFrais (Etat idEtat) {	
 	this.idVisiteur= new Visiteur();
 	this.mois=new SimpleStringProperty();
 	this.nbJustificatifs=new SimpleIntegerProperty();

@@ -1,13 +1,8 @@
 package controller;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import DAO.ComptableDAO;
-import DAO.Connect;
 import DAO.DocumentDAO;
 import DAO.FicheFraisDAO;
 import DAO.LigneFraisForfaitDAO;
@@ -24,12 +19,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import javafx.util.Callback;
 import model.Document;
 import model.FicheFrais;
 import model.LigneFraisForfait;
-import model.Visiteur;
 import view.FenetreConnexion;
 
 public class LigneFraisForfaitController {
@@ -185,10 +178,24 @@ public void actionValiderLaFiche(ActionEvent evt) throws SQLException, IOExcepti
 	FicheFraisDAO.updateFiche(fiche.getIdVisiteur().getId(),fiche.getMois());
 
 	
-       /* FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(.class.getClassLoader().getResource("View/afficherFicheFrais.fxml"));
-      AnchorPane visiteurFrame = (AnchorPane) loader.load(); */
-}
+	 try {
+         // Load person overview.
+         FXMLLoader loader = new FXMLLoader();
+         loader.setLocation(FenetreConnexion.class.getClassLoader().getResource("view/afficherFicheFrais.fxml"));
+        Pane Connexion  = (Pane) loader.load();
+             Stage stage =  (Stage) Dcx.getScene().getWindow();
+         // Set person overview into the center of root layout.
+
+             Scene scene = Dcx.getScene();
+             scene.setRoot(Connexion);
+             stage.setScene(scene);
+
+     } catch (IOException e) {
+
+         e.printStackTrace();
+     }
+ }
+
 
 
 
@@ -213,6 +220,26 @@ public void actionValiderLaFiche(ActionEvent evt) throws SQLException, IOExcepti
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FenetreConnexion.class.getClassLoader().getResource("view/connexion.fxml"));
+           Pane Connexion  = (Pane) loader.load();
+                Stage stage =  (Stage) Dcx.getScene().getWindow();
+            // Set person overview into the center of root layout.
+
+                Scene scene = Dcx.getScene();
+                scene.setRoot(Connexion);
+                stage.setScene(scene);
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+    }
+	@FXML
+    public void Retour(ActionEvent actEv)  throws SQLException, IOException {
+
+        try {
+            // Load person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(FenetreConnexion.class.getClassLoader().getResource("view/afficherFicheFrais.fxml"));
            Pane Connexion  = (Pane) loader.load();
                 Stage stage =  (Stage) Dcx.getScene().getWindow();
             // Set person overview into the center of root layout.

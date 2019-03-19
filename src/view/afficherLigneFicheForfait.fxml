@@ -36,5 +36,6 @@
         </columns>
       </TableView>
       <Button fx:id="Dcx" layoutX="539.0" layoutY="18.0" mnemonicParsing="false" onAction="#Deconnexion" style="-fx-background-radius: 20;" text="Déconnexion" />
+      <Button fx:id="BtnRetour" layoutX="541.0" layoutY="53.0" mnemonicParsing="false" onAction="#Retour" prefHeight="26.0" prefWidth="86.0" style="-fx-background-radius: 20;" text="Retour" />
    </children>
 </AnchorPane>
