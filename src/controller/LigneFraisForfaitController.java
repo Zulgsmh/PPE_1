@@ -49,7 +49,7 @@ public class LigneFraisForfaitController {
     private TableColumn<LigneFraisForfait, String> montant;
 
     ObservableList<LigneFraisForfait> listeFicheFrais ;
-    FicheFrais fiche ;
+    private FicheFrais fiche ;
     
     //--------------------------------------------------------
     
@@ -75,20 +75,32 @@ public class LigneFraisForfaitController {
     
     @FXML
     private TableColumn afficherJustificatif ;
+	
     
+ 	public void setFiche(FicheFrais fiche) {
+		this.fiche = fiche;
+		labelId.setText(fiche.getIdVisiteur().getId());
+		labelNom.setText(fiche.getIdVisiteur().getNom());
+		labelPrenom.setText(fiche.getIdVisiteur().getPrenom());
+		try {
+		
+			listeFicheFrais =  (new LigneFraisForfaitDAO()).findByIdListe(fiche.getIdVisiteur().getId());
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	System.out.println(listeFicheFrais.get(0));
+tableauFicheFraisVisiteur.setItems(listeFicheFrais);
+	}
     @FXML
     private void initialize () {
-
-    		//recuperation des données
-    		try {
-    			listeFicheFrais =  (new LigneFraisForfaitDAO()).findAll();
-    		} catch (SQLException e) {
-    			// TODO Auto-generated catch block
-    			e.printStackTrace();
-    		}
+   
+    //recuperation des données
     	
-    	System.out.println(listeFicheFrais.get(0));
-	tableauFicheFraisVisiteur.setItems(listeFicheFrais);
+	
+    		
 		
     	 idVisiteur.setCellValueFactory(cellData -> cellData.getValue().getIdVisiteur().getIdPro() );
          mois.setCellValueFactory(cellData -> cellData.getValue().getMoisPro());
@@ -207,12 +219,7 @@ public void actionValiderLaFiche(ActionEvent evt) throws SQLException, IOExcepti
 	public FicheFrais getFiche() {
 		return fiche;
 	}
-	public void setFiche(FicheFrais fiche) {
-		this.fiche = fiche;
-		labelId.setText(fiche.getIdVisiteur().getId());
-		labelNom.setText(fiche.getIdVisiteur().getNom());
-		labelPrenom.setText(fiche.getIdVisiteur().getPrenom());
-	}
+
 	@FXML
     public void Deconnexion(ActionEvent actEv)  throws SQLException, IOException {
 

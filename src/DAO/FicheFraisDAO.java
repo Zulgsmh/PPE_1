@@ -117,6 +117,7 @@ public class FicheFraisDAO implements DAO<FicheFrais> {
 	@Override
 	public FicheFrais findById(String id) throws SQLException {
 		// TODO Auto-generated method stub
+		
 		return null;
 	}
 	

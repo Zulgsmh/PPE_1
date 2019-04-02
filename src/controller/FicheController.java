@@ -98,7 +98,8 @@ public class FicheController {
 	                        Scene sc = btn.getScene();
 	                        
 	                        LigneFraisForfaitController ligneController = loader.getController(); 
-	                        
+	                        // faire passer les info a l'autre page 
+	                    	
 	                  ligneController.setFiche(fiche);
 	                        
 	                        sc.setRoot(userFrame);
