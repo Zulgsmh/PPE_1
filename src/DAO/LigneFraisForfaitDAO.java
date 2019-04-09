@@ -11,34 +11,44 @@ import model.LigneFraisForfait;
 import model.Visiteur;
 
 public class LigneFraisForfaitDAO implements DAO<LigneFraisForfait>{
-   @Override
-	public ObservableList<LigneFraisForfait>  findByIdListe(String id) throws SQLException {
-	ObservableList<LigneFraisForfait> listeLigneFraisForfait = FXCollections.observableArrayList();
-	String sqlRequest = " select * from lignefraisforfait where idVisiteur = ?";
-	Connection cx =  Connect.getInstance().getConnection() ;
-	PreparedStatement pst = cx.prepareStatement(sqlRequest);
-	 pst.setString(1, id);
-	 
-	 ResultSet jeu = pst.executeQuery();
-	 
-	 while (jeu.next()) {
-		 VisiteurDAO vd = new VisiteurDAO()  ;	
-		 Visiteur vr= vd.findById(jeu.getString("idVisiteur"));
-		 FraisForfaitDAO ffd = new FraisForfaitDAO();
-		 FraisForfait ff = ffd.findById(id);
-		 LigneFraisForfait LigneFraisForfait1 =new LigneFraisForfait(vr,ff);
+	   @Override
+	   public ObservableList<LigneFraisForfait>  findByIdListe(String id, String mois) throws SQLException {
+		   try {
+				ObservableList<LigneFraisForfait> listeLigneFraisForfait = FXCollections.observableArrayList();
+				String sqlRequest = " select * from lignefraisforfait where idVisiteur like '%"+ id+"%' and mois like '%"+ mois +"%'" ;
+				Connection cx =  Connect.getInstance().getConnection();
+				PreparedStatement pst = cx.prepareStatement(sqlRequest);	 
+				 
+				 ResultSet jeu = pst.executeQuery();
+			          
+		       
+				 
+					 while (jeu.next()) {
+						 VisiteurDAO vd = new VisiteurDAO()  ;	
+						 Visiteur vr= vd.findById(jeu.getString("idVisiteur"));
+						 FraisForfaitDAO ffd = new FraisForfaitDAO();
+						 FraisForfait ff = ffd.findById(id);
+						 LigneFraisForfait LigneFraisForfait1 =new LigneFraisForfait(vr,ff);
+					
+						 
+						 LigneFraisForfait1.setIdVisiteur(vr);
+						 LigneFraisForfait1.setMois(jeu.getString("mois"));
+						 LigneFraisForfait1.setIdFraisForfait(ff);
+						 LigneFraisForfait1.setQuantite(jeu.getInt("quantite"));
+						 
+						 
+						 listeLigneFraisForfait.add(LigneFraisForfait1);
+						 }
+				 	
+			return listeLigneFraisForfait;
+		   }
+		   catch(Exception ex) {
+			   System.out.println(ex);
+			   return null;
+		   }
+	   }
 	
-		 
-		 LigneFraisForfait1.setIdVisiteur(vr);
-		 LigneFraisForfait1.setMois(jeu.getString("mois"));
-		 LigneFraisForfait1.setIdFraisForfait(ff);
-		 LigneFraisForfait1.setQuantite(jeu.getInt("quantite"));
-		 
-		 
-		 listeLigneFraisForfait.add(LigneFraisForfait1);
-		 }
-return listeLigneFraisForfait;
-}
+
 
 @Override
 public ObservableList<LigneFraisForfait>  findAll() throws SQLException {

@@ -28,27 +28,33 @@ public class ConnexionController {
 	@FXML
 	private void actionConnexion(ActionEvent evt) throws SQLException, IOException {
 		
-		
-		if ( ComptableDAO.auth(txtMdp.getText(),txtLogin.getText())) {
-			
-			
-			 // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(FenetreConnexion.class.getClassLoader().getResource("View/afficherFicheFrais.fxml"));
-           AnchorPane visiteurFrame = (AnchorPane) loader.load();
+		try {
+			if ( ComptableDAO.auth(txtMdp.getText(),txtLogin.getText())) {
+				
+				
+				 // Load person overview.
+	            FXMLLoader loader = new FXMLLoader();
+	            loader.setLocation(FenetreConnexion.class.getClassLoader().getResource("View/afficherFicheFrais.fxml"));
+	           AnchorPane visiteurFrame = (AnchorPane) loader.load();
 
-            // Set person overview into the center of root layout.
-           Stage stage =  (Stage) txtMdp.getScene().getWindow();
-           // Set person overview into the center of root layout.
-               
-               Scene scene = txtMdp.getScene();
-               scene.setRoot(visiteurFrame);
-               stage.setScene(scene);
+	            // Set person overview into the center of root layout.
+	           Stage stage =  (Stage) txtMdp.getScene().getWindow();
+	           // Set person overview into the center of root layout.
+	               
+	               Scene scene = txtMdp.getScene();
+	               scene.setRoot(visiteurFrame);
+	               stage.setScene(scene);
+			}
+			else {
+				
+				test.setText("faux");
+			}
 		}
-		else {
-			
-			test.setText("faux");
+		catch(Exception ec){
+			System.out.println(ec);
 		}
+		
+		
 	}
 	
 	@FXML

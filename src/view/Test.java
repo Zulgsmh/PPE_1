@@ -24,7 +24,7 @@ public class Test {
 		
 DocumentDAO ddao = new DocumentDAO();
 ObservableList<Document> listeDocument = ( new DocumentDAO()).findAll();
-System.out.println(listeDocument.get(0));*/
+System.out.println(listeDocument.get(0));
 FicheFraisDAO f = new FicheFraisDAO();
 
 ObservableList<FicheFrais> listeFicheFrais =f.findAll() ;
@@ -32,7 +32,7 @@ ObservableList<FicheFrais> listeFicheFrais =f.findAll() ;
 System.out.println( listeFicheFrais.get(0));
 LigneFraisForfaitDAO l = new LigneFraisForfaitDAO();
 ObservableList<LigneFraisForfait> liste =l.findByIdListe("a131") ;
-System.out.println( liste.get(0));
+System.out.println( liste.get(0));*/
 
 
 	}

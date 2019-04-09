@@ -9,7 +9,7 @@ public interface DAO <T>{
 	default void create(T t) {};
 	ObservableList<T> findAll() throws SQLException ;
  default	T findById(String id) throws SQLException  {return null ;};
-	default ObservableList<T> findByIdListe(String id) throws SQLException {return null ;} ;
+	default ObservableList<T> findByIdListe(String id, String mois) throws SQLException {return null ;} ;
 	
 
 } 

@@ -71,10 +71,9 @@ public class FicheFraisDAO implements DAO<FicheFrais> {
 			// TODO Auto-generated method stub
 			ObservableList<FicheFrais> listeFicheFrais = FXCollections.observableArrayList();
 			
-		String sqlRequete = "SELECT * FROM FicheFrais WHERE mois = ? ";
+		String sqlRequete = "SELECT * FROM FicheFrais WHERE mois like '%"+mois+"%'";
 		Connection cx =  Connect.getInstance().getConnection() ;
-		PreparedStatement pst = cx.prepareStatement(sqlRequete);
-		pst.setString(1, mois);
+		PreparedStatement pst = cx.prepareStatement(sqlRequete);		
 		ResultSet table = pst.executeQuery();
 		
 		 String idVisiteur;

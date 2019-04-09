@@ -82,16 +82,14 @@ public class LigneFraisForfaitController {
 		labelId.setText(fiche.getIdVisiteur().getId());
 		labelNom.setText(fiche.getIdVisiteur().getNom());
 		labelPrenom.setText(fiche.getIdVisiteur().getPrenom());
-		try {
-		
-			listeFicheFrais =  (new LigneFraisForfaitDAO()).findByIdListe(fiche.getIdVisiteur().getId());
+		try {			
+			listeFicheFrais =  (new LigneFraisForfaitDAO()).findByIdListe(fiche.getIdVisiteur().getId(),fiche.getMois());
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-	
-	System.out.println(listeFicheFrais.get(0));
+		}	
+	/*System.out.println(listeFicheFrais.get(0));*/
 tableauFicheFraisVisiteur.setItems(listeFicheFrais);
 	}
     @FXML
